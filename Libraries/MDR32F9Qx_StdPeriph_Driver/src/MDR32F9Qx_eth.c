@@ -966,6 +966,7 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 	uint32_t PacketLength, i, Rhead, EthBaseBufferAddr, * ptr_InputFrame, tmp;
 	uint16_t BufferMode;
 	int32_t EthReceiverFreeBufferSize;
+  uint32_t RHead;
 
 	/* Check the parameters */
 	assert_param(IS_ETH_ALL_PERIPH(ETHERNETx));
@@ -1004,7 +1005,11 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 				}
 			}
 			/* Set the new value of the ETH_R_Head register */
-			ETHERNETx->ETH_R_Head = ((uint32_t)ptr_InputFrame)&0x1FFF;
+      RHead = ((uint32_t)ptr_InputFrame)&0x1FFF;
+      if (RHead < ETHERNETx->ETH_Dilimiter)
+        ETHERNETx->ETH_R_Head = RHead;
+      else
+        ETHERNETx->ETH_R_Head = 0;
 			break;
 		/* The buffer mode is aoutomatic */
 		case ETH_BUFFER_MODE_AUTOMATIC_CHANGE_POINTERS:
@@ -1100,7 +1105,7 @@ void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer
 				}
 			}
 			ptr_OutputFrame++;
-			Xtail = (uint32_t)ptr_OutputFrame&0x1FFC;
+      Xtail = (uint32_t)ptr_OutputFrame&0xFFFC;
 			if(Xtail >= ETH_BUFFER_SIZE)
 				Xtail = ETHERNETx->ETH_Dilimiter;
 			/* Write the new value of the ETH_X_Tail register */
