@@ -263,7 +263,7 @@ void ETH_DeInit(MDR_ETHERNET_TypeDef * ETHERNETx )
 	/* PHY reset */
 	ETH_PHY_Reset(ETHERNETx);
 
-	ETHERNETx->ETH_Dilimiter 	= 0x0800;
+	ETHERNETx->ETH_Dilimiter 	= 0x1000;
 	ETHERNETx->ETH_MAC_T 		= 0x78AB;
 	ETHERNETx->ETH_MAC_M 		= 0x3456;
 	ETHERNETx->ETH_MAC_H 		= 0x0012;
@@ -282,7 +282,8 @@ void ETH_DeInit(MDR_ETHERNET_TypeDef * ETHERNETx )
 	ETHERNETx->ETH_IMR 			= 0x0000;
 	ETHERNETx->ETH_IFR 			= 0x0000;
 	ETHERNETx->ETH_R_Head 		= 0x0000;
-	ETHERNETx->ETH_X_Tail 		= 0x0800;
+	ETHERNETx->ETH_X_Tail 		= 0x1000;  
+  	ETHERNETx->ETH_STAT = 0;
 }
 
 /**
@@ -469,9 +470,6 @@ void ETH_Init(MDR_ETHERNET_TypeDef * ETHERNETx, ETH_InitTypeDef * ETH_InitStruct
 	/* Write to ETH_G_CFGh */
 	ETHERNETx->ETH_G_CFGh = tmpreg_G_CFGh;
 
-	if (ETH_InitStruct->ETH_Buffer_Mode == ETH_BUFFER_MODE_FIFO)
-		ETH_DMAPrepare();
-
 	/* Config the G_CFGl register */
 	tmpreg_G_CFGl = (ETH_InitStruct->ETH_Register_CLR 		<< ETH_G_CFGl_RCLR_EN_Pos)
 				  |	(ETH_InitStruct->ETH_Buffer_Mode)
@@ -534,6 +532,9 @@ void ETH_Init(MDR_ETHERNET_TypeDef * ETHERNETx, ETH_InitTypeDef * ETH_InitStruct
 	ETHERNETx->ETH_BAG = ETH_InitStruct->ETH_BAG;
 	/* Set jitter of packets transmitted. */
 	ETHERNETx->ETH_JitterWnd = ETH_InitStruct->ETH_JitterWnd;
+  
+	if (ETH_InitStruct->ETH_Buffer_Mode == ETH_BUFFER_MODE_FIFO)
+		ETH_DMAPrepare();  
 }
 
 /**
@@ -1105,7 +1106,7 @@ void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer
 				}
 			}
 			ptr_OutputFrame++;
-      Xtail = (uint32_t)ptr_OutputFrame&0xFFFC;
+      Xtail = (uint32_t)ptr_OutputFrame&0x3FFC;
 			if(Xtail >= ETH_BUFFER_SIZE)
 				Xtail = ETHERNETx->ETH_Dilimiter;
 			/* Write the new value of the ETH_X_Tail register */
@@ -1163,6 +1164,7 @@ void ETH_DMAPrepare(void)
 	DMA_InitStr.DMA_SelectDataStructure = DMA_CTRL_DATA_PRIMARY;
 	/* Init DMA channel */
 	DMA_Init(DMA_Channel_SW1, &DMA_InitStr);
+    DMA_Init(DMA_Channel_SW2, &DMA_InitStr);
 }
 
 /**
