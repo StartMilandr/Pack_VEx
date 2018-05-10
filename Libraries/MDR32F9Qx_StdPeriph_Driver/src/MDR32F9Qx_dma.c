@@ -514,21 +514,21 @@ FlagStatus DMA_GetFlagStatus(uint8_t DMA_Channel, uint8_t DMA_Flag)
   switch(DMA_Flag)
   {
     case DMA_FLAG_DMA_ENA:
-      return (FlagStatus)(MDR_DMA->STATUS & DMA_STATUS_MASTER_ENABLE);
+      return (FlagStatus)((MDR_DMA->STATUS & DMA_STATUS_MASTER_ENABLE)  != 0);
     case DMA_FLAG_DMA_ERR:
-      return (FlagStatus)(MDR_DMA->ERR_CLR & 0x01);
+      return (FlagStatus)((MDR_DMA->ERR_CLR & 0x01) == 0);
     case DMA_FLAG_CHNL_ENA:
-      return (FlagStatus)(MDR_DMA->CHNL_ENABLE_SET & (1 << DMA_Channel));
+      return (FlagStatus)((MDR_DMA->CHNL_ENABLE_SET & (1 << DMA_Channel)) != 0);
     case DMA_FLAG_CHNL_MASK:
-      return (FlagStatus)(MDR_DMA->CHNL_REQ_MASK_SET & (1 << DMA_Channel));
+      return (FlagStatus)((MDR_DMA->CHNL_REQ_MASK_SET & (1 << DMA_Channel)) != 0);
     case DMA_FLAG_CHNL_WAIT:
-      return (FlagStatus)(MDR_DMA->WAITONREQ_STATUS & (1 << DMA_Channel));
+      return (FlagStatus)((MDR_DMA->WAITONREQ_STATUS & (1 << DMA_Channel)) != 0);
     case DMA_FLAG_CHNL_BURST:
-      return (FlagStatus)(MDR_DMA->CHNL_USEBURST_SET & (1 << DMA_Channel));
+      return (FlagStatus)((MDR_DMA->CHNL_USEBURST_SET & (1 << DMA_Channel)) != 0);
     case DMA_FLAG_CHNL_ALT:
-      return (FlagStatus)(MDR_DMA->CHNL_PRI_ALT_SET & (1 << DMA_Channel));
+      return (FlagStatus)((MDR_DMA->CHNL_PRI_ALT_SET & (1 << DMA_Channel)) != 0);
     case DMA_FLAG_CHNL_PRIORITY:
-      return (FlagStatus)(MDR_DMA->CHNL_PRIORITY_SET & (1 << DMA_Channel));
+      return (FlagStatus)((MDR_DMA->CHNL_PRIORITY_SET & (1 << DMA_Channel) != 0));
     default:
       return (FlagStatus)0;
   }
