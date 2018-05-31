@@ -105,10 +105,10 @@ typedef struct
                                              This parameter can be a value of @ref ADCx_Level_Control */
 
   uint16_t ADC_LowLevel;                /*!< Specifies the ADCx value low level.
-                                             This parameter can be a number between 0x0000 and 0x07FF. */
+                                             This parameter can be a number between 0x0000 and 0x0FFF. */
 
   uint16_t ADC_HighLevel;                /*!< Specifies the ADCx value high level.
-                                             This parameter can be a number between 0x0000 and 0x07FF. */
+                                             This parameter can be a number between 0x0000 and 0x0FFF. */
 
   uint32_t ADC_VRefSource;              /*!< Specifies the ADCx voltage reference source (internal or external).
                                              This parameter can be a value of @ref ADCx_VRef_Source */
@@ -358,7 +358,8 @@ typedef struct
 #define IS_ADC_LEVEL_CONTROL_CONFIG(CONFIG) (((CONFIG) == ADC_LEVEL_CONTROL_Disable) || \
                                              ((CONFIG) == ADC_LEVEL_CONTROL_Enable ))
 
-#define IS_ADC_VALUE(VALUE) (((VALUE) >= 0) && ((VALUE) <= 0x0FFF))
+#define ADC_VALUE_MAX                        (0x0FFF)
+#define IS_ADC_VALUE(VALUE) (((VALUE) >= 0) && ((VALUE) <= ADC_VALUE_MAX))
 
 /** @} */ /* End of group ADCx_Level_Control */
 
