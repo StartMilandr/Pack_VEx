@@ -7,6 +7,7 @@
 #define MDR32F9QX_SDIO_H_
 
 /* Includes ------------------------------------------------------------------*/
+#include "MDR32F9Qx_config.h"
 
 /** @addtogroup __MDR32F9Qx_StdPeriph_Driver MDR32F9Qx Standard Peripherial Driver
   * @{
