@@ -103,7 +103,7 @@ void BKP_DeInit(void)
 
   MDR_BKP -> REG_0E |= (uint32_t) (BKP_REG_0E_ON);
   MDR_BKP -> REG_0E &= (uint32_t) (BKP_REG_0E_OFF);
-  MDR_BKP -> REG_0F = (uint32_t) (BKP_REG_0F_LSI_ON);
+  MDR_BKP -> REG_0F = (uint32_t) (BKP_REG_0F_LSI_ON | BKP_REG_0F_HSI_ON);
 }
 
 #if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
