@@ -3965,12 +3965,11 @@ typedef struct {
 
 /** @} */ /* End of group __CMSIS */
 
-#endif /* __MDR1986VE1T_H */
-
 #ifdef __cplusplus
 }
 #endif
 
+#endif /* __MDR1986VE1T_H */
 
 /*
 *

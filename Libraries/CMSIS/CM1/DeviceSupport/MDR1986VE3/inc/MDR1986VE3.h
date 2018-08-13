@@ -4382,6 +4382,10 @@ typedef struct
 
 /** @} */ /* End of group __CMSIS */
 
+#ifdef __cplusplus
+    } // extern "C" block end
+#endif
+
 #endif /* __MDR1986VE3_H */
 
 /*
