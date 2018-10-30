@@ -339,7 +339,8 @@ typedef struct
 #define IS_ADC_LEVEL_CONTROL_CONFIG(CONFIG) (((CONFIG) == ADC_LEVEL_CONTROL_Disable) || \
                                              ((CONFIG) == ADC_LEVEL_CONTROL_Enable ))
 
-#define IS_ADC_VALUE(VALUE) (((VALUE) >= 0) && ((VALUE) <= 0x0FFF))
+#define ADC_VALUE_MAX                        (0x0FFF)
+#define IS_ADC_VALUE(VALUE) (((VALUE) >= 0) && ((VALUE) <= ADC_VALUE_MAX))
 
 /** @} */ /* End of group ADCx_Level_Control */
 
