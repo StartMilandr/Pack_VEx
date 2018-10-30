@@ -510,7 +510,7 @@ FlagStatus DMA_GetFlagStatus(uint8_t DMA_Channel, uint8_t DMA_Flag)
     case DMA_FLAG_CHNL_ALT:
       return (FlagStatus)((MDR_DMA->CHNL_PRI_ALT_SET & (1 << DMA_Channel)) != 0);
     case DMA_FLAG_CHNL_PRIORITY:
-      return (FlagStatus)((MDR_DMA->CHNL_PRIORITY_SET & (1 << DMA_Channel) != 0));
+      return (FlagStatus)((MDR_DMA->CHNL_PRIORITY_SET & (1 << DMA_Channel)) != 0);
     default:
       return (FlagStatus)0;
   }

@@ -251,10 +251,10 @@ FlagStatus SDIO_GetFlagStatus(uint32_t SDIO_FLAG)
 	assert_param(IS_SDIO_FLAG(SDIO_FLAG));
 
 	if(SDIO_FLAG & 0x80000000){
-		result = !((SDIO_FLAG & MDR_SDIO->SR) == 0);
+		result = (FlagStatus)((SDIO_FLAG & MDR_SDIO->SR) != 0);
 	}
 	else{
-		result = !((SDIO_FLAG & MDR_SDIO->CR) == 0);
+		result = (FlagStatus)((SDIO_FLAG & MDR_SDIO->CR) != 0);
 	}
 	return (result);
 }

@@ -1903,7 +1903,8 @@ ITStatus TIMER_GetITStatus(MDR_TIMER_TypeDef* TIMERx, uint32_t TIMER_IT)
   assert_param(IS_TIMER_ALL_PERIPH(TIMERx));
   assert_param(IS_TIMER_STATUS_FLAG(TIMER_IT));
 
-  tmpreg = TIMERx->STATUS & TIMERx->IE & TIMER_IT;
+  tmpreg = TIMERx->IE;
+  tmpreg = TIMERx->STATUS & tmpreg & TIMER_IT;
 
   if (tmpreg == 0)
   {
