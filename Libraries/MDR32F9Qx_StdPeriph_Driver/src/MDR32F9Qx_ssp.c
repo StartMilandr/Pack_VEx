@@ -128,7 +128,8 @@ void SSP_StructInit(SSP_InitTypeDef* SSP_InitStruct)
   /* Initialize the SSP max speed */
   SSP_InitStruct->SSP_CPSDVSR = 2;
   SSP_InitStruct->SSP_SCR = 0;
-
+  
+  SSP_InitStruct->SSP_HardwareFlowControl = 0;
 }
 
 /**
