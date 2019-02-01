@@ -2,7 +2,6 @@
   * FILE MDR32F9Qx_wwdg.c
   */
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_wwdg.h"
 #include "MDR32F9Qx_rst_clk.h"
 

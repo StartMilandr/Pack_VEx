@@ -3,7 +3,6 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_mil_std_1553.h"
 #include "MDR32F9Qx_rst_clk.h"
 

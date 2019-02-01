@@ -3,7 +3,6 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_sdio.h"
 
 #define ASSERT_INFO_FILE_ID FILEID__MDR32F9Qx_SDIO_C

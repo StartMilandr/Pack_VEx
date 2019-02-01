@@ -3,7 +3,6 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_i2c.h"
 
 #define ASSERT_INFO_FILE_ID FILEID__MDR32F9X_I2C_C

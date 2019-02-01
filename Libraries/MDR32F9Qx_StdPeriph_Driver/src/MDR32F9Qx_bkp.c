@@ -2,7 +2,6 @@
   * FILE MDR32F9Qx_bkp.c
   */
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_bkp.h"
 #include "MDR32F9Qx_rst_clk.h"
 
