@@ -46,7 +46,7 @@
 #if ((__CC_ARM == 0) || (__ARMCC_VERSION < 5000000))
 	#include "MDR32F9Qx_board.h"
 #endif
-#include "MDR32F9Qx_lib.h"
+  #include "MDR32F9Qx_lib.h"
 #include <stdint.h>
 
 #if defined (USE_MDR32F9Q1_Rev0) || defined (USE_MDR32F9Q1_Rev1) ||\

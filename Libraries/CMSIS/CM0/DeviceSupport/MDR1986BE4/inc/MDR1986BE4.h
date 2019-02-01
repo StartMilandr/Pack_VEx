@@ -2227,6 +2227,7 @@ typedef struct {
 	__IO uint32_t	INTEN;                  /*!< */
 	__IO uint32_t	STAT;                   /*!< */
 	__IO uint32_t	F_DAT[8];               /*!< */
+	__IO uint32_t	TST;                    /*!< */
 }MDR_ADCIU_TypeDef;
 
 /** @defgroup Periph_ADCIU_CTRL1 ADCIU CTRL1
