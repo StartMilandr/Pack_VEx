@@ -426,7 +426,7 @@ void SSP_BRGInit ( MDR_SSP_TypeDef* SSPx, uint32_t SSP_BRG ) {
 			tmpreg &= ~RST_CLK_SSP_CLOCK_SSP2_BRG_Msk;
 			tmpreg |= (SSP_BRG << 8);
 		}
-#if defined (USE_MDR1986VE1) || defined (USE_MDR1986VE3) || defined (USE_MDR1901VC1T)
+#if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3) || defined (USE_MDR1901VC1T)
 	else if(SSPx == MDR_SSP3) {
 			tmpreg |= RST_CLK_SSP_CLOCK_SSP3_CLK_EN;
 			tmpreg &= ~RST_CLK_SSP_CLOCK_SSP3_BRG_Msk;
