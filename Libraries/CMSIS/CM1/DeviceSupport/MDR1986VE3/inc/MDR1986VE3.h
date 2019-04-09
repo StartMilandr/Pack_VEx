@@ -1925,6 +1925,7 @@ typedef struct
 #define POWER_PVDCS_IEPVD_Pos                   9
 #define POWER_PVDCS_INVB_Pos                    10
 #define POWER_PVDCS_INV_Pos                     11
+#define POWER_PVDCS_PVDBEN_Pos                  12
 
 /* Bit field masks: */
 #define POWER_PVDCS_PVDEN                       ((uint32_t)0x00000001)
@@ -1936,6 +1937,7 @@ typedef struct
 #define POWER_PVDCS_IEPVD                       ((uint32_t)0x00000200)
 #define POWER_PVDCS_INVB                        ((uint32_t)0x00000400)
 #define POWER_PVDCS_INV                         ((uint32_t)0x00000800)
+#define POWER_PVDCS_PVDBEN                      ((uint32_t)0x00001000)
 
 /** @} */ /* End of group POWER_PVDCS */
 
