@@ -471,7 +471,7 @@ void UART_BreakLine(MDR_UART_TypeDef* UARTx, FunctionalState NewState)
   else
   {
     /* Reset BRK bit in the UART LCR_H register */
-    UARTx->LCR_H |= LCR_H_BRK_Reset;
+    UARTx->LCR_H &= LCR_H_BRK_Reset;
   }
 }
 
@@ -528,7 +528,7 @@ void UART_IrDACmd(MDR_UART_TypeDef* UARTx, FunctionalState NewState)
   else
   {
     /* Reset SIREN bit in the UART CR register */
-    UARTx->CR |= CR_SIREN_Reset;
+    UARTx->CR &= CR_SIREN_Reset;
   }
 }
 
