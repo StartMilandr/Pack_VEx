@@ -286,7 +286,7 @@ void TIMER4_IRQHandler(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void Timer1_IRQHandler(void)
+void TIMER1_IRQHandler(void)
 {
 	My_TIMER1_IRQ_Handler(MDR_TIMER1, MDR_MIL_STD_15531);
 }
@@ -298,7 +298,7 @@ void Timer1_IRQHandler(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void Timer2_IRQHandler(void)
+void TIMER2_IRQHandler(void)
 {
 }
 
@@ -309,7 +309,7 @@ void Timer2_IRQHandler(void)
 * Output         : None
 * Return         : None
 *******************************************************************************/
-void Timer3_IRQHandler(void)
+void TIMER3_IRQHandler(void)
 {
 }
 
