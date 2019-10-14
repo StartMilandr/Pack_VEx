@@ -2733,6 +2733,15 @@ typedef struct
 	__IO uint32_t DATA_R;
 	__IO uint32_t CONTROL6;
 	__IO uint32_t CONTROL7;
+	__IO uint32_t DATA_R_Direct [14];
+	__IO uint32_t INTMASK1;
+	__IO uint32_t INTMASK2;
+	__IO uint32_t CONTROL8;
+	__IO uint32_t CONTROL9;
+	__IO uint32_t CONTROL10;
+	__IO uint32_t CONTROL11;
+	__IO uint32_t CONTROL12;
+	__IO uint32_t CONTROL13;
 }MDR_ARINC429R_TypeDef;
 
 /** @} */ /* End of group Periph_ARINC429R_Data_Structures */
@@ -3176,6 +3185,8 @@ typedef struct
 	__IO uint32_t DATA3_T;
 	__IO uint32_t DATA4_T;
 	__IO uint32_t CONTROL3;
+	__IO uint32_t CONTROL4;
+	__IO uint32_t CONTROL5;
 }MDR_ARINC429T_TypeDef;
 
 /** @} */ /* End of group Periph_ARINC429T_Data_Structures */
