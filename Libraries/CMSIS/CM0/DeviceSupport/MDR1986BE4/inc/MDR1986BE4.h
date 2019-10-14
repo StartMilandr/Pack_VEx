@@ -2820,6 +2820,9 @@ typedef struct {
 	__IO uint32_t	PD;                     /*!<PORT Driver Mode Register */
 	__IO uint32_t	PWR;                    /*!<PORT Power Register */
 	__IO uint32_t	GFEN;                   /*!<PORT Filter Configuration Register */
+	__IO uint32_t   SETTX;                  /*!<PORT Data Set Register */
+        __IO uint32_t   CLRTX;                  /*!<PORT Data Clear Register */
+        __IO uint32_t   RDTX;                   /*!<PORT Data Output Register */
 }MDR_PORT_TypeDef;
 
 /** @defgroup Periph_PORT_RXTX PORT RXTX

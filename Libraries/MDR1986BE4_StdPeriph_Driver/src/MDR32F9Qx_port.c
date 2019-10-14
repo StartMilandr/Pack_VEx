@@ -185,13 +185,12 @@ uint32_t PORT_ReadInputData(MDR_PORT_TypeDef* PORTx)
   */
 void PORT_SetBits ( MDR_PORT_TypeDef* PORTx, uint32_t PORT_Pin )
 {
-	/* Check the parameters */
-	assert_param(IS_PORT_ALL_PERIPH(PORTx));
-	assert_param(IS_PORT_PIN(PORT_Pin));
-	assert_param(IS_NOT_JTAG_PIN(PORTx, PORT_Pin));
+  /* Check the parameters */
+  assert_param(IS_PORT_ALL_PERIPH(PORTx));
+  assert_param(IS_PORT_PIN(PORT_Pin));
+  assert_param(IS_NOT_JTAG_PIN(PORTx, PORT_Pin));
 
-
-	PORTx->RXTX = PORT_Pin | (PORTx->RXTX & (~JTAG_PINS(PORTx)));
+  PORTx->SETTX = PORT_Pin & (~JTAG_PINS(PORTx));
 }
 
 /**
@@ -208,7 +207,7 @@ void PORT_ResetBits(MDR_PORT_TypeDef* PORTx, uint32_t PORT_Pin)
   assert_param(IS_PORT_PIN(PORT_Pin));
   assert_param(IS_NOT_JTAG_PIN(PORTx, PORT_Pin));
 
-  PORTx->RXTX &= ~(PORT_Pin | JTAG_PINS(PORTx));
+  PORTx->CLRTX = PORT_Pin & (~JTAG_PINS(PORTx));
 }
 
 /**
@@ -224,21 +223,19 @@ void PORT_ResetBits(MDR_PORT_TypeDef* PORTx, uint32_t PORT_Pin)
   */
 void PORT_WriteBit(MDR_PORT_TypeDef* PORTx, uint32_t PORT_Pin, BitAction BitVal)
 {
-  uint32_t portdata;
   /* Check the parameters */
   assert_param(IS_PORT_ALL_PERIPH(PORTx));
   assert_param(IS_GET_PORT_PIN(PORT_Pin));
   assert_param(IS_PORT_BIT_ACTION(BitVal));
   assert_param(IS_NOT_JTAG_PIN(PORTx, PORT_Pin));
 
-  portdata = PORTx->RXTX & (~JTAG_PINS(PORTx));
   if (BitVal != Bit_RESET)
   {
-    PORTx->RXTX = portdata | PORT_Pin;
+    PORTx->SETTX = PORT_Pin & (~JTAG_PINS(PORTx));
   }
   else
   {
-    PORTx->RXTX = portdata & (~PORT_Pin);
+    PORTx->CLRTX = PORT_Pin & (~JTAG_PINS(PORTx));
   }
 }
 
