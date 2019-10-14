@@ -147,7 +147,7 @@ typedef struct
   * @{
   */
 
-#define IS_DMA_CHANNELS(NUMBER) ((NUMBER >= 1) && (NUMBER <= 32))
+#define IS_DMA_CHANNELS(NUMBER) (((NUMBER) >= 1) && ((NUMBER) <= 32))
 
 /** @} */ /* End of group DMA_channels_number */
 
@@ -409,7 +409,7 @@ typedef struct
 
 #endif
 
-#define IS_DMA_CHANNEL(CHANNEL) (CHANNEL <= (DMA_Channels_Number - 1))
+#define IS_DMA_CHANNEL(CHANNEL) ((CHANNEL) <= (DMA_Channels_Number - 1))
 
 /** @} */ /* End of group DMA_valid_channels */
 
@@ -486,7 +486,7 @@ typedef struct
   * @{
   */
 
-#define IS_DMA_CYCLE_SIZE(SIZE)   ((SIZE >= 1) && (SIZE <= 1024))
+#define IS_DMA_CYCLE_SIZE(SIZE)   (((SIZE) >= 1) && ((SIZE) <= 1024))
 
 /** @} */ /* End of group DMA_cycle_size */
 
@@ -521,7 +521,7 @@ typedef struct
 #define DMA_SourceBufferable                ((uint32_t)(0x01 << 19))
 #define DMA_SourcePrivileged                ((uint32_t)(0x01 << 18))
 
-#define IS_DMA_SOURCE_PROT(STATE)           ((STATE & (~(0x7 << 18))) == 0)
+#define IS_DMA_SOURCE_PROT(STATE)           (((STATE) & (~(0x7 << 18))) == 0)
 
 /** @} */ /* End of group DMA_source_protection_control */
 
@@ -533,7 +533,7 @@ typedef struct
 #define DMA_DestBufferable                  ((uint32_t)(0x01 << 22))
 #define DMA_DestPrivileged                  ((uint32_t)(0x01 << 21))
 
-#define IS_DMA_DEST_PROT(STATE)             ((STATE & (~(0x7 << 21))) == 0)
+#define IS_DMA_DEST_PROT(STATE)             (((STATE) & (~(0x7 << 21))) == 0)
 
 /** @} */ /* End of group DMA_dest_protection_control */
 
@@ -545,7 +545,7 @@ typedef struct
 #define DMA_AHB_Bufferable                ((uint32_t)(0x01 << 6))
 #define DMA_AHB_Privileged                ((uint32_t)(0x01 << 5))
 
-#define IS_DMA_AHB_PROT(STATE)            ((STATE & (~(0x7 << 5))) == 0)
+#define IS_DMA_AHB_PROT(STATE)            (((STATE) & (~(0x7 << 5))) == 0)
 
 /** @} */ /* End of group DMA_source_protection_control */
 

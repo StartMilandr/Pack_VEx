@@ -1723,7 +1723,7 @@ void TIMER_ClearFlag(MDR_TIMER_TypeDef* TIMERx, uint32_t Flags)
   assert_param(IS_TIMER_ALL_PERIPH(TIMERx));
   assert_param(IS_TIMER_STATUS(Flags));
 
-  TIMERx->STATUS &= ~Flags;
+  TIMERx->STATUS = ~Flags;
 }
 
 /**

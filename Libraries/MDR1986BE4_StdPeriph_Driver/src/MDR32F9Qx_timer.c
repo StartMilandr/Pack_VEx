@@ -1680,11 +1680,11 @@ void TIMER_ClearFlag(MDR_TIMER_TypeDef* TIMERx, uint32_t Flags)
   assert_param(IS_TIMER_ALL_PERIPH(TIMERx));
   assert_param(IS_TIMER_STATUS(Flags));
 
-  TIMERx->STATUS &= ~Flags;
+  TIMERx->STATUS = ~Flags;
 }
 
 /**
-  * @brief  Enables or disables the TIMERx’s DMA Requests.
+  * @brief  Enables or disables the TIMERxï¿½s DMA Requests.
   * @param  TIMERx: where x can be 1 to 3 to select the TIMER peripheral.
   * @param  TIMER_DMASource: specifies the DMA Request sources.
   *         This parameter can be any combination of the following values:

@@ -397,7 +397,7 @@ typedef struct
 #define CAN_IT_MASK		(CAN_IT_GLBINTEN | CAN_IT_RXINTEN | CAN_IT_TXINTEN |\
 						 CAN_IT_ERRINTEN | CAN_IT_ERROVERINTEN)
 
-#define IS_CAN_ITConfig(IT) 		((IT & (~CAN_IT_MASK)) == 0)
+#define IS_CAN_ITConfig(IT) 		(((IT) & (~CAN_IT_MASK)) == 0)
 
 /** @} */ /* End of group CAN_interrupts */
 

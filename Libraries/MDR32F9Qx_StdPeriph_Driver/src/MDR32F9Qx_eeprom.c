@@ -28,8 +28,8 @@
   * @{
   */
 
-#define IS_TWO_BYTE_ALLIGNED(ADDR)      ((ADDR & 1) == 0)
-#define IS_FOUR_BYTE_ALLIGNED(ADDR)     ((ADDR & 3) == 0)
+#define IS_TWO_BYTE_ALLIGNED(ADDR)      (((ADDR) & 1) == 0)
+#define IS_FOUR_BYTE_ALLIGNED(ADDR)     (((ADDR) & 3) == 0)
 
 #define DELAY_LOOP_CYCLES               (8UL)
 #define GET_US_LOOPS(N)                 ((uint32_t)((float)(N) * FLASH_PROG_FREQ_MHZ / DELAY_LOOP_CYCLES))

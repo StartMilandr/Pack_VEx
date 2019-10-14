@@ -3,8 +3,9 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_eth.h"
+#include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_dma.h"
+#include "MDR32F9Qx_eth.h"
 #include "MDR32F9Qx_rst_clk.h"
 
 #include <math.h>

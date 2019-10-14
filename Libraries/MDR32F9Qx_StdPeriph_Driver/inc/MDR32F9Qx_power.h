@@ -174,9 +174,9 @@ extern "C" {
 #define POWER_TRIM_1_6_V					(1 << BKP_REG_0E_TRIM_34_Pos)
 #define POWER_TRIM_1_4_V					(2 << BKP_REG_0E_TRIM_34_Pos)
 
-#define IS_POWER_TRIM(TRIM)					((TRIM == POWER_TRIM_1_4_V) ||\
-											 (TRIM == POWER_TRIM_1_6_V) ||\
-											 (TRIM == POWER_TRIM_1_8_V))
+#define IS_POWER_TRIM(TRIM)					(((TRIM) == POWER_TRIM_1_4_V) ||\
+											 ((TRIM) == POWER_TRIM_1_6_V) ||\
+											 ((TRIM) == POWER_TRIM_1_8_V))
 
 /** @} */ /* End of group POWER_TRIM */
 

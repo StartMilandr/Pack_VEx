@@ -156,7 +156,7 @@ typedef struct {
 #define RST_CLK_CPU_PLLmul15                    ((uint32_t)0x0000000E)
 #define RST_CLK_CPU_PLLmul16                    ((uint32_t)0x0000000F)
 
-#define IS_RST_CLK_CPU_PLL_MUL(SRC)             ((SRC>=0) && (SRC<16))
+#define IS_RST_CLK_CPU_PLL_MUL(SRC)             (((SRC)>=0) && ((SRC)<16))
 
 /** @} */ /* End of group CPU_PLL_clock_multiplier */
 
@@ -206,7 +206,7 @@ typedef struct {
 #define RST_CLK_USB_PLLmul15                    ((uint32_t)0x0000000E)
 #define RST_CLK_USB_PLLmul16                    ((uint32_t)0x0000000F)
 
-#define IS_RST_CLK_USB_PLL_MUL(SRC)             ((SRC>=0) && (SRC<16))
+#define IS_RST_CLK_USB_PLL_MUL(SRC)             (((SRC)>=0) && ((SRC)<16))
 
 /** @} */ /* End of group USB_PLL_clock_multiplier */
 
@@ -651,10 +651,10 @@ typedef struct {
 #define DSP_C1_CLOCK_HSE					(uint32_t)(0x0000002)
 #define DSP_C1_CLOCK_HSE2					(uint32_t)(0x0000003)
 
-#define IS_DSP_C1_CLOCK(CLOCK)				((CLOCK == DSP_C1_CLOCK_HSI)  ||\
-											 (CLOCK == DSP_C1_CLOCK_HSI2) ||\
-											 (CLOCK == DSP_C1_CLOCK_HSE)  ||\
-											 (CLOCK == DSP_C1_CLOCK_HSE2))
+#define IS_DSP_C1_CLOCK(CLOCK)				(((CLOCK) == DSP_C1_CLOCK_HSI)  ||\
+											 ((CLOCK) == DSP_C1_CLOCK_HSI2) ||\
+											 ((CLOCK) == DSP_C1_CLOCK_HSE)  ||\
+											 ((CLOCK) == DSP_C1_CLOCK_HSE2))
 
 /** @} */ /* End of group DSP_C1_CLOCK */
 
@@ -679,8 +679,8 @@ typedef struct {
 #define DSP_PLL_MUL15						(uint32_t)(0x0000000E)
 #define DSP_PLL_MUL16						(uint32_t)(0x0000000F)
 
-#define	IS_DSP_PLL_MULL(PLL_MUL)			((PLL_MUL >= DSP_PLL_MUL1) &&\
-										    (PLL_MUL <= DSP_PLL_MUL15))
+#define	IS_DSP_PLL_MULL(PLL_MUL)			(((PLL_MUL) >= DSP_PLL_MUL1) &&\
+										    ((PLL_MUL) <= DSP_PLL_MUL15))
 
 /** @} */ /* End of group DSP_PLL_MUL */
 
@@ -691,8 +691,8 @@ typedef struct {
 #define DSP_PRESCALER1						(uint32_t)(0x00000000)
 #define DSP_PRESCALER2						(uint32_t)(0x00000001)
 
-#define IS_DSP_PRESCALER(PRESCALER)			((PRESCALER == DSP_PRESCALER1) ||\
-											 (PRESCALER == DSP_PRESCALER2))
+#define IS_DSP_PRESCALER(PRESCALER)			(((PRESCALER) == DSP_PRESCALER1) ||\
+											 ((PRESCALER) == DSP_PRESCALER2))
 
 /** @} */ /* End of group DSP_Prescalere */
 

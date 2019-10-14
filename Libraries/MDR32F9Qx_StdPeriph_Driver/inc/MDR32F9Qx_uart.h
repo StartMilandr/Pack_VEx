@@ -260,9 +260,9 @@ typedef struct
 #define UART_Data_PE_Msk                    ((uint32_t)(1 << UART_Data_FE))
 #define UART_Data_FE_Msk                    ((uint32_t)(1 << UART_Data_PE))
 
-#define UART_Data(DATA)                     ((uint8_t)DATA)
-#define UART_Flags(DATA)                    ((uint8_t)(DATA >> 8))
-#define UART_CheckDataStatus(DATA, BIT)     ((((uint32_t)DATA) << (31 - BIT)) >> 31)
+#define UART_Data(DATA)                     ((uint8_t)(DATA))
+#define UART_Flags(DATA)                    ((uint8_t)((DATA) >> 8))
+#define UART_CheckDataStatus(DATA, BIT)     ((((uint32_t)(DATA)) << (31 - (BIT))) >> 31)
 
 #define IS_UART_DATA(DATA)                  ((DATA) <= 0xFF)
 
